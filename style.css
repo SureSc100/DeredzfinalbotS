@@ -1,0 +1,13 @@
+:root{--bg:#0f0f11;--panel:#161616;--muted:#9aa0a6;--accent:#00c87a;--danger:#e64b4b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;background:var(--bg);color:#eee;padding:14px}
+.app{max-width:980px;margin:0 auto;background:var(--panel);border-radius:12px;padding:14px;box-shadow:0 8px 40px rgba(0,0,0,0.6)}
+header{display:flex;align-items:center;gap:12px} .logo{width:48px;border-radius:10px} h1{margin:0;font-size:1.1rem}
+.controls{margin-top:12px;padding:10px;background:#0b0b0c;border-radius:10px;display:block} .row{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.row label{width:160px;color:var(--muted)} .row input{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#0b0b0c;color:#fff}
+.buttons{display:flex;gap:8px} .buttons button{padding:8px 12px;border-radius:8px;background:#0b0b0c;border:1px solid rgba(255,255,255,0.04);color:#fff;cursor:pointer}
+.chart-and-signal{display:flex;gap:12px;margin-top:12px} #tv_chart_container{flex:1;height:540px;background:#000;border-radius:8px;overflow:hidden}
+.signal-panel{width:340px;background:#0b0b0c;padding:12px;border-radius:8px} #countdown{color:var(--accent);font-weight:700}
+.signal p{margin:6px 0} .feedback{display:flex;gap:8px;margin-top:8px} .feedback button{flex:1;padding:10px;font-weight:700}
+.log{margin-top:12px;height:200px;overflow:auto;background:#070707;padding:8px;border-radius:8px;font-size:0.85rem;color:var(--muted)}
+.help{margin-top:12px;background:#0a0a0a;padding:8px;border-radius:8px;color:var(--muted);font-size:0.9rem}
+footer{margin-top:12px;text-align:center;color:var(--muted);font-size:0.8rem} .hidden{display:none}

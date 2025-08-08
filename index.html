@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons.png" />
+<link rel="stylesheet" href="style.css" />
+<title>Deredz Signal Bot UV — Final</title>
+<script src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+<div class="app">
+  <header>
+    <img src="icon.png" class="logo" alt="Deredz">
+    <h1>Deredz Signal Bot UV — Final</h1>
+  </header>
+
+  <section class="controls">
+    <div class="row">
+      <label>Data API Key (embedded):</label>
+      <input id="apiKey" value="9d9674e89aed47b098f0d54257e81e35" readonly />
+    </div>
+    <div class="row">
+      <label>Payouts API (optional):</label>
+      <input id="payoutApi" placeholder="Optional payouts endpoint returning JSON [{symbol,payout}]" />
+    </div>
+    <div class="row">
+      <label>Assets to watch (comma):</label>
+      <input id="assets" value="EUR/USD,GBP/USD,USD/JPY,AUD/USD" />
+    </div>
+    <div class="row buttons">
+      <button id="startBtn">Start GodMode</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+  </section>
+
+  <section class="chart-and-signal">
+    <div id="tv_chart_container"></div>
+
+    <aside class="signal-panel">
+      <h2>Next Signal In: <span id="countdown">--:--</span></h2>
+      <div id="currentSignal" class="signal hidden">
+        <p><strong>Asset:</strong> <span id="asset">-</span></p>
+        <p><strong>Direction:</strong> <span id="direction">-</span></p>
+        <p><strong>Confidence:</strong> <span id="confidence">-</span></p>
+        <p><strong>Reason:</strong> <span id="reason">-</span></p>
+        <div class="feedback">
+          <button id="markWin">✔ Win</button>
+          <button id="markLoss">✖ Loss</button>
+        </div>
+      </div>
+      <div id="log" class="log"></div>
+      <div class="help">
+        <h4>How to use with IQ Option</h4>
+        <ol>
+          <li>Open this app and your IQ Option app (phone) or website (PC).</li>
+          <li>Click <strong>Start GodMode</strong>. The API key is already embedded.</li>
+          <li>When a signal appears (confidence ≥ 90%), place the trade in IQ Option with 5-minute expiry.</li>
+          <li>Mark Win/Loss to log results.</li>
+        </ol>
+      </div>
+    </aside>
+  </section>
+
+  <footer>
+    <small>Deredz Signal Bot UV · Final · 2-asset focus · 5-minute cycle · 90% filter</small>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+<script>
+function createTVWidget(symbol){
+  const container = document.getElementById('tv_chart_container');
+  container.innerHTML = '';
+  const el = document.createElement('div');
+  el.id = 'tv_widget';
+  container.appendChild(el);
+  new TradingView.widget({
+    "autosize": true,
+    "symbol": symbol,
+    "interval": "1",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "toolbar_bg": "#0b0b0c",
+    "enable_publishing": false,
+    "hide_side_toolbar": false,
+    "allow_symbol_change": true,
+    "container_id": "tv_widget"
+  });
+}
+</script>
+</body>
+</html>
